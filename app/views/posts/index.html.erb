@@ -2,6 +2,19 @@
 
 
 <% @posts.each do |post| %>
-<h1><%= post.title %></h1>
+<dl id="accordion">
+ <dt><%= post.title %></dt>
+ <dd><%= post.content %></dd>
+ </dl>
 <%= link_to '編集', edit_post_path(post) %> 
+
 <% end %>
+  <%# <%= paginate @posts, theme: 'twitter-bootstrap-4'%> %>
+<script>
+window.addEventListener('DOMContentLoaded', function(){
+  $('#accordion dd').hide();
+  $('#accordion dt').on('click', function(){
+    $(this).next('#accordion dd').slideToggle();
+  });
+});
+</script>
