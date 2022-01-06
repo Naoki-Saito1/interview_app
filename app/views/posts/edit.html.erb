@@ -1,2 +1,9 @@
-<h1>Posts#edit</h1>
-<p>Find me in app/views/posts/edit.html.erb</p>
+<%= form_with(model: @post, local: true) do |post| %>
+ 
+
+  <%= post.label :title %>
+  <%= post.text_field :title %>
+  <%= post.label :content %>
+  <%= post.text_field :content %>
+  <%= post.submit "Create", class: "btn btn-outline-success btn-sm" %>
+<% end %>
